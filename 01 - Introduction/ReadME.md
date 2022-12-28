@@ -128,7 +128,7 @@ $ for var in AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN AWS_SECUR
       unzip awscliv2.zip
       sudo ./aws/install
 
-      **Install Terraform**
+      **Install Terraform**  <== this didn't work. Use the b) option below
       a) *Download binary*
       sudo yum update -y
       sudo yum install wget unzip -y
