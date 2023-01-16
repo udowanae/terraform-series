@@ -30,7 +30,7 @@ variable "instance_type_list" {
 # AWS EC2 Instance Type - Map
 variable "instance_type_map" {
   description = "EC2 Instance Type"
-  type = map(string) # this maps the different working environments to the type of intance that would be created for each
+  type = map(string) # this maps the different working environments to the type of intance that would be created for each. We would reference the key "dev", "qa", "prod" and terraform would get the value
   default = {
     "dev" = "t3.micro"
     "qa" = "t3.small"
