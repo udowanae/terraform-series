@@ -2,14 +2,14 @@
 resource "aws_instance" "myec2" {
   ami = data.aws_ami.amzlinux2.id
   #instance_type = var.instance_type
-  instance_type = var.instance_type_list[0]  # For List
+  instance_type = var.instance_type_list[0]  # For List. This would create the instance type that is first in the variable list, i.e. position 0
   #instance_type = var.instance_type_map["dev"]  # For Map
   user_data = file("${path.module}/app1-install.sh")
   key_name = var.instance_keypair
   vpc_security_group_ids = [ aws_security_group.vpc-ssh.id, aws_security_group.vpc-web.id   ]
-  count = 1
+  count = 3 # this s a meta index telly terraform to create 3 of this resource
   tags = {
-    "Name" = "Prod-${count.index}"
+    "Name" = "Prod-${count.index}" # because we are creating 3 instances, this would give them unique names by count i.e Prod1, Prod2etc
   }
 }
 
