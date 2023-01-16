@@ -24,13 +24,13 @@ variable "instance_keypair" {
 variable "instance_type_list" {
   description = "EC2 Instance Type"
   type = list(string)
-  default = ["t2.micro", "t2.medium", "t3.large"]
+  default = ["t2.micro", "t2.medium", "t3.large"] # we can reference to this instance type list by specifying the place values starting fromn0, 1, 2 ...
 }
 
 # AWS EC2 Instance Type - Map
 variable "instance_type_map" {
   description = "EC2 Instance Type"
-  type = map(string)
+  type = map(string) # this maps the different working environments to the type of intance that would be created for each
   default = {
     "dev" = "t3.micro"
     "qa" = "t3.small"
